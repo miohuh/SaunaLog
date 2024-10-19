@@ -18,7 +18,7 @@
 
 1. リポジトリをクローンする
     ```bash
-    git clone https://github.com/username/repository.git
+    git clone https://github.com/miohuh/sauna.git
     ```
 2. 必要なパッケージをインストールする
     ```bash
