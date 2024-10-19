@@ -1,0 +1,191 @@
+@charset "UTF-8";
+
+:root {
+    --main-bg-color: #f5f1e8; /* 背景色 */
+    --accent-color: #00695c; /* SAUNAテーマに合わせた色 */
+    --hover-color: #004d40; /* ホバー時の色 */
+    --text-color: white; /* テキストの色 */
+}
+
+body {
+	font-family:monospace;
+    margin: 0;
+    padding: 0;
+    background-color: var(--main-bg-color);
+    text-align: center;
+}
+
+h1 {
+	font-size: 2.5em; /* フォントサイズを調整（必要に応じて変更） */
+    color: var(--accent-color); /* 色を変える場合はここで指定 */
+    margin: 20px 0; /* 上下のマージンを調整 */
+    border-bottom: 2px solid var(--accent-color); /* 下にボーダー */
+    padding-bottom: 10px; /* ボーダーとの余白を追加 */
+}
+
+/*---------ナビゲーションバーの設定---------------------------------*/
+
+nav {
+	 font-family: 'Georgia', serif;
+    display: flex;
+    justify-content: center; /* 左寄せに変更 */
+    align-items: center; /* 縦方向中央揃え */
+    background-color: #333;
+    padding: 10px 20px;
+}
+
+.logo {
+    height: 50px;
+    left: 10px;
+    vertical-align: middle;
+     border-radius: 30px;
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #dddddd; /* リンクのホバー時に明るく */
+    text-decoration: underline;
+}
+
+nav input[type="text"] {
+    padding: 5px; /* 入力フィールドのパディングを調整 */
+    margin-left: 5px; /* ボタンとの間隔を調整 */
+    width: 150px; /* 幅を狭くする */
+}
+
+nav input[type="submit"] {
+    padding: 5px 10px; /* ボタンのパディングを調整 */
+    margin-left: 5px; /* 入力フィールドとの間隔を調整 */
+}
+
+/*---------MENUボタンの設定-------------------------------------------*/
+
+/* MENUボタンのスタイル */
+.menu-button {
+	 font-family: 'Georgia', serif;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    padding: 12px 18px;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    right: 30px;
+    top: 15px;
+    z-index: 1000;
+    font-size: 18px;
+    border-radius: 30px;
+}
+
+.menu-button:hover{
+	background-color: var(--hover-color);
+}
+
+
+/* MENUのコンテナ */
+.menu-container {
+    position: relative;
+}
+
+/* MENUが表示された時のスタイル */
+.menu-content {
+    position: fixed;
+    right: -100%;
+    top: 0;
+    height: 100%;
+    width: 300px;
+    background-color: #004d40;
+    color: var(--text-color);
+    transition: right 0.3s ease;
+    z-index: 999;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* MENUにシャドウを追加 */
+}
+
+/* MENUの表示アニメーション */
+.menu-content.active {
+    right: 0;
+}
+
+/* MENU内のナビゲーション */
+.menu-content nav {
+    margin-top: 20px; /* ナビゲーションの上のマージン */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.menu-content nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin: 15px 0; /* 一貫したマージン */
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.menu-content nav a:hover {
+    text-decoration: underline;
+}
+
+
+/* MENUの検索フォームのスタイル */
+.search-form {
+    display: flex; 
+    align-items: center; 
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.search-input {
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 3px;
+    margin-top: 15px; /* 一貫したマージン */
+    background-color: #e0f2f1;
+    
+}
+
+.search-button {
+    padding: 10px 15px;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 15px; /* 一貫したマージン */
+   	margin-left: 10px; 
+}
+
+.search-button:hover {
+    background-color: var(--hover-color);
+}
+
+/*------------------------------------------------------------------------*/
+
+
+/* レスポンシブデザイン */
+@media (max-width: 600px) {
+    .container {
+        max-width: 100%;
+        padding: 10px; /* コンテナ内のパディングを調整 */
+    }
+
+    nav {
+        flex-direction: column; /* ナビゲーションを縦方向に */
+        align-items: flex-start; /* 左寄せ */
+    }
+
+    .menu-button {
+        right: 15px; /* 画面幅に応じて調整 */
+    }
+
+    nav a {
+        margin: 10px 0; /* ナビゲーションリンクのマージンを上下に調整 */
+    }
+}
