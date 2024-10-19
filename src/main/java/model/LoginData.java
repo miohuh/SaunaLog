@@ -10,7 +10,7 @@ public class LoginData implements Serializable {
 	private String pass;
 	
 	public LoginData() {}
-	
+
 	public LoginData(String id, String pass) {
 		this.id = id;
 		this.pass = pass;
