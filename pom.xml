@@ -29,10 +29,11 @@
         <artifactId>maven-war-plugin</artifactId>
         <version>3.2.3</version>
       </plugin>
+      <!-- Jettyのバージョンを10系に変更 -->
       <plugin>
         <groupId>org.eclipse.jetty</groupId>
         <artifactId>jetty-maven-plugin</artifactId>
-        <version>9.4.35.v20201120</version>
+        <version>10.0.15</version>
         <configuration>
           <webApp>
             <contextPath>/</contextPath>
