@@ -9,6 +9,8 @@
 	<packaging>war</packaging>
 	<!-- エンコーディングをUTF-8に設定 -->
 	<properties>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
@@ -37,6 +39,7 @@
 						<contextPath>/</contextPath>
 						<war>${project.basedir}/src/main/webapp</war>
 					</webApp>
+					<port>8081</port>
 				</configuration>
 			</plugin>
 		</plugins>
