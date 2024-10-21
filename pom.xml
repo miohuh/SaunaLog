@@ -45,11 +45,19 @@
 		</plugins>
 	</build>
 	<dependencies>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>4.0.1</version>
-			<scope>provided</scope>
-		</dependency>
-	</dependencies>
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>javax.servlet-api</artifactId>
+		<version>4.0.1</version>
+		<scope>provided</scope>
+	</dependency>
+	
+	<!-- PostgreSQL JDBC Driverの依存関係を追加 -->
+	<dependency>
+		<groupId>org.postgresql</groupId>
+		<artifactId>postgresql</artifactId>
+		<version>42.6.0</version> <!-- 最新バージョンに合わせてください -->
+	</dependency>
+</dependencies>
+
 </project>
