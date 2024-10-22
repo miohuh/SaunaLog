@@ -26,6 +26,7 @@ String error = (String)request.getAttribute("error");
             <input type="submit" value="ログイン">
         </div>
     </form>
+    <a href="WEB-INF/jsp/register.jsp">アカウント作成</a>
 	</div>
 
 </body>

@@ -2,6 +2,8 @@ package model;
 
 import java.util.List;
 
+import dao.SaunaDAO;
+
 public class SaunaLogic {
 
 	public boolean nameCheck(SaunaData data) {

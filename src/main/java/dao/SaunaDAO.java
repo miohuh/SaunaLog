@@ -1,4 +1,4 @@
-package model;
+package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,12 +8,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.SaunaData;
+
 /*
  * データベース接続クラス
  */
 public class SaunaDAO {
 
-	private final String URL = "jdbc:postgresql://localhost:5432/my";
+	private final String URL = "jdbc:postgresql://localhost:5432/sauna";
 	private final String USER = "postgres";
 	private final String PASSWORD = "test";
 
