@@ -1,69 +1,39 @@
 # SaunaLog
 
-サウナに関する情報や感想を登録でき、閲覧できるアプリケーション。
-
-![スクリーンショット (6)](https://github.com/user-attachments/assets/e0082191-e43c-4279-b4a1-5c3f110cd94b)
-
 ## 概要
-
-このプロジェクトは、サウナに関する情報や個人の感想を記録・共有するためのWebアプリケーションです。
+サウナ好きのためのサウナ感想投稿サイト
 
 ## 機能
+- ユーザーログイン
+- サウナレビューの閲覧・投稿
+- 住所リンクでgoogleマップの表示
 
-- サウナの情報を登録・編集・削除
-- ユーザー登録とログイン
-- 他のユーザーのレビューを見ることができる
+## データベース作成に使用したSQL文
+ 詳細なSQL文は、以下のファイルをご覧ください :
+ - [sauna.sql](sauna.sql)
 
-## 必要な環境
+## スクリーンショット
 
-- Java 17
-- Maven 3.6.3 以上
-- PostgreSQL 12 以上
+|   機能名      | スクリーンショット                             | 説明                   |
+|-------------|----------------------------------------------|------------------------|
+|  初期画面  |![初期画面](https://github.com/user-attachments/assets/77b76da0-c502-4401-88a7-d107a2b8dd8c)| ロゴが表示されます |
+|  ログイン画面  | ![ログイン](https://github.com/user-attachments/assets/3e77a9cd-13e7-47d6-bfc0-f03ed29a1a5f) | ログインを行います |
+|  データ登録画面  |![データ登録](https://github.com/user-attachments/assets/04937313-4e71-4572-a046-3dfceed5355d) | ログイン完了できたらデータが登録できます |
+| 　View画面  | ![View](https://github.com/user-attachments/assets/d6f87bd9-accd-4566-990d-2e7f2bf18d6f)　| Viewリンクへ飛ぶとデータが全件閲覧可能です |
+|  検索  | ![検索結果](https://github.com/user-attachments/assets/68a0c4eb-a63b-43a4-9bc4-7e8308ea6c0e) | 検索ボックスから検索した結果を表示します |
 
-## インストール方法
+## 開発の動機
+今まで学校で習ってきたことやフロント部分を触ってみたかったので開発しました。サウナが好きなので行ったサウナを書き留めたいと思いサウナをテーマにしました。
 
-1. リポジトリをクローンする
-    ```bash
-    git clone https://github.com/miohuh/sauna.git
-    ```
-2. 必要なパッケージをインストールする
-    ```bash
-    mvn install
-    ```
-3. PostgreSQLデータベースを設定する
-    - データベースを作成する
-    - 必要なテーブルやスキーマをセットアップするためのSQLスクリプトを実行する
-    ```sql
-    CREATE DATABASE sauna;
-    \c sauna;
-    CREATE TABLE sauna (
-      id serial NOT NULL,
-      name character varying(100) NOT NULL,
-      type character varying(10) NOT NULL,
-      url character varying(200) NOT NULL,
-      point1 character varying(50),
-      point2 character varying(50),
-      point3 character varying(50),
-      impression character varying(400) NOT NULL,
-      star integer,
-      address character varying(150),
-      PRIMARY KEY (id)
-    );
-    ```
+## 学びと反省
+JavaScriptやCSSを触ってみることが今回の目標ではあったが、多くの機能を取り付けるには難しかった。まだまだ理解できてないのと自己流なのが反省点です。
+また、その点を調べることへ時間がとられ、アプリケーションとしての機能がまだまだ不十分だと感じます。
 
-## 使い方
+## 今後の改善点
+ まずはアプリケーションの機能の改善につとめます。
+ 1. アカウント作成機能
+ 2. レビューの削除や編集機能
+ 3. 画像投稿機能
+また上記に取り組み後、追加したい機能として、レビューソート・閲覧者の評価制度などを考えています。
+ 
 
-1. PostgreSQLサーバーを起動する
-2. アプリケーションを起動する
-    ```bash
-    mvn jetty:run
-    ```
-3. ブラウザで `http://localhost:8080` にアクセスしてアプリケーションを確認する
-
-## 貢献方法
-
-貢献方法については `CONTRIBUTING.md` を参照してください。ここにはバグ報告の手順や、新機能提案の方法、プルリクエストの手順が記載されています。
-
-## ライセンス
-
-このプロジェクトはMITライセンスのもとで公開されています。詳しくは `LICENSE` ファイルを参照してください。
