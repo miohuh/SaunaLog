@@ -15,4 +15,10 @@ public class LoginLogic {
 	public void register() {
 		
 	}
+	
+	public boolean inputCheck(String id, String pass) {
+		
+		
+		return true;
+	}
 }

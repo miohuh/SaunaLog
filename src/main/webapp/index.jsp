@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html>
 
-<%@ include file="WEB-INF/jsp/header.jsp"%>
+<%@ include file="WEB-INF/jsp/nav/header.jsp"%>
 
 <body>
 
-<%@ include file="WEB-INF/jsp/nav.jsp"%>
+<%@ include file="WEB-INF/jsp/nav/nav.jsp"%>
 
 	<div class="hero">
 		<object id="sauna-logo" data="images/SaunaLog.svg" type="image/svg+xml"></object>

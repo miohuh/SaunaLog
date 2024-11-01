@@ -6,9 +6,9 @@ String msg = (String) request.getAttribute("msg");
 
 <!DOCTYPE html>
 <html>
-<jsp:include page="/WEB-INF/jsp/header.jsp" />
+<jsp:include page="/WEB-INF/jsp/nav/header.jsp" />
 <body>
-<jsp:include page="/WEB-INF/jsp/nav.jsp" />
+<jsp:include page="/WEB-INF/jsp/nav/nav.jsp" />
 
 	<div class="container">
 		<h1>データ登録</h1>
