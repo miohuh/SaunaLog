@@ -10,6 +10,7 @@ CREATE TABLE sauna
  point2 VARCHAR(50),
  point3 VARCHAR(50),
  impression VARCHAR (400) not null,
+ image_data BYTEA,
  star INTEGER);
 
 CREATE TABLE users
