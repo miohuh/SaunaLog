@@ -13,5 +13,7 @@ CREATE TABLE sauna
  star INTEGER);
 
 CREATE TABLE users
-(id VARCHAR NOT NULL PRIMARY KEY,
- pass VARCHAR NOT NULL);
+(id serial not null,
+ name_id varchar,
+ pass varchar,
+ primary key (id));
