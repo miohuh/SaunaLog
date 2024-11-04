@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.LoginData;
-import model.LoginLogic;
+import model.UsersLogic;
 
 @WebServlet("/Login")
 public class Login extends HttpServlet {
@@ -38,7 +38,7 @@ public class Login extends HttpServlet {
 		String id = request.getParameter("id");
 		String pass = request.getParameter("pass");
 
-		LoginLogic logic = new LoginLogic();
+		UsersLogic logic = new UsersLogic();
 		boolean login = logic.logincheck(id, pass);
 
 		String path = "";
@@ -52,7 +52,6 @@ public class Login extends HttpServlet {
 			path = "WEB-INF/jsp/login.jsp";
 			request.setAttribute("error", "IDとPASSWARDが違います");
 		}
-		path = "WEB-INF/jsp/recordSauna.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);
 
