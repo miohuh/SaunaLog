@@ -7,9 +7,9 @@ SaunaData data = (SaunaData)request.getAttribute("data");
 
 <!DOCTYPE html>
 <html>
-<jsp:include page="/WEB-INF/jsp/header.jsp" />
+<jsp:include page="/WEB-INF/jsp/nav/header.jsp" />
 <body>
-<jsp:include page="/WEB-INF/jsp/nav.jsp" />
+<jsp:include page="/WEB-INF/jsp/nav/nav.jsp" />
 
 	<div class="container sauna-info">
     <p class="id">ID：<%=data.getId() %></p> <!-- IDを段落の外に移動 -->
