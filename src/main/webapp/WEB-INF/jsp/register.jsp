@@ -11,7 +11,9 @@ String msg = (String)request.getAttribute("msg");
 
 	<div class="container">
 	<% if (msg != null) { %>
-		<p><%=msg %></p>
+		<p style="color: crimson;"><%=msg %></p>
+	<% } else { %>
+		<p style="color: #808080;">"ID"は3～20文字、アルファベットと数字が使用可能です<br>"PASSWORD"は8～20文字、英大文字・英小文字・数字を必ず使用してください<br></p>
 	<% } %>
 	 <form action="Register" method="post" class="login-form">
         <div class="login-group">
