@@ -16,11 +16,13 @@ String word = (String)request.getAttribute("word");
     <% if (resultNameList == null || resultNameList.isEmpty()) { %>
         <p><%=word %>を含むサウナは登録されていません</p>
     <% } else { %>
+    <form action="Update" method="get">
         <ul>
             <% for (String name : resultNameList) { %>
-                <li><a href="Select?name=<%= name %>"><%= name %></a></li>
+                <li><input type="radio" name="action" value="<%=name %>"><a href="Select?name=<%= name %>"><%= name %></a></li>
             <% } %>
         </ul>
+	</form>
     <% } %>
 </div>
 

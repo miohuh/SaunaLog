@@ -1,7 +1,9 @@
+<%@page import="model.SaunaData"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
 String msg = (String) request.getAttribute("msg");
+SaunaData saunaData = (SaunaData)request.getAttribute("saunaData");
 %>
 
 <!DOCTYPE html>
@@ -11,13 +13,17 @@ String msg = (String) request.getAttribute("msg");
 <jsp:include page="/WEB-INF/jsp/nav/nav.jsp" />
 
 	<div class="container">
+	<% if (saunaData == null) { %>
 		<h1>データ登録</h1>
+	<% } else { %>
+		<h1>データ更新</h1>
+	<% } %>
 		<% if (msg != null) { %>
 			<p><%=msg%></p>
 		<% } %>
 		<form action="Save" method="post"class="record-form">
 			<div class="form-group">
-				<label>施設名：</label> <input type="text" name="name">
+				<label>施設名：</label> <input type="text" name="name" <%if(saunaData != null){%>value="<%=saunaData.getName() %>"<%}%>>
 			</div>
 			<div class="form-group">
 				<label for="type">施設タイプ：</label> <select name="type" id="type">
