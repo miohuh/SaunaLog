@@ -173,5 +173,37 @@ public class SaunaDAO {
 	}
 	
 	
-	
+	public boolean updateSauna(SaunaData data) {
+		String sql = "UPDATE sauna SET name = ?, type = ?, adress = ?, ";
+		sql += "url = ?, point1 = ?, point2 = ?, point3 = ?, impression = ?, star = ? ";
+		sql += "WHERE id = ? ;";
+		
+		try (Connection con = DriverManager.getConnection(URL, USER, PASSWORD);
+				PreparedStatement st = con.prepareStatement(sql);) {
+			
+			st.setString(1, data.getName());
+			st.setString(2, data.getType());
+			st.setString(3, data.getAdress());
+			st.setString(4, data.getUrl());
+			st.setString(5, data.getPoint1());
+			st.setString(6, data.getPoint2());
+			st.setString(7, data.getPoint3());
+			st.setString(8, data.getImpression());
+			st.setInt(9, data.getStar());
+			st.setInt(10, data.getId());
+			
+			int count = st.executeUpdate();
+			
+			if (count == 1) {
+				return true;
+			}
+				return false;
+			
+		} catch (Exception e) {
+			System.out.println("データベース連携時にエラーが発生");
+			e.printStackTrace();
+			return false;
+		}
+		
+	}
 }

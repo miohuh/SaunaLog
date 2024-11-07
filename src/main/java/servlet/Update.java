@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.SaunaData;
 import model.SaunaLogic;
@@ -19,20 +20,38 @@ public class Update extends HttpServlet {
   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		String name = request.getParameter("name");
+		String name = request.getParameter("action");
 		
 		if (name != null && name.length() != 0) {
 			SaunaLogic logic = new SaunaLogic();
 			SaunaData saunaData = logic.select(name);
 			
-			request.setAttribute("saunaData", saunaData);
+			HttpSession session = request.getSession();
+			session.setAttribute("saunaData", saunaData);
 		}
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("recordSauna.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/recordSauna.jsp");
 		dispatcher.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		SaunaData saunaData = (SaunaData)session.getAttribute("saunaData");
+		
+		SaunaLogic logic = new SaunaLogic();
+		boolean updateCheck = logic.update(saunaData);
+		
+		if (updateCheck) {
+			request.setAttribute("msg", "更新されました。");
+			session.removeAttribute("saunaData");
+		}else { 
+			request.setAttribute("msg", "更新できませんでした。");
+		}
+	
+		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/recordSauna.jsp");
+		dispatcher.forward(request, response);
+		
+		
 		
 	}
 

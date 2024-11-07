@@ -20,18 +20,19 @@ public class Save2 extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		SaunaData data = (SaunaData)session.getAttribute("data");
+		SaunaData saunaData = (SaunaData)session.getAttribute("saunaData");
 		
 		SaunaLogic logic = new SaunaLogic();
-		boolean nameCheck = logic.nameCheck(data);
+		boolean nameCheck = logic.nameCheck(saunaData);
 		
 		if (nameCheck) {
 			request.setAttribute("msg", "このサウナ名は既に登録されています");
 		}else { 
-			boolean finalCheck= logic.insertData(data);
+			boolean finalCheck= logic.insertData(saunaData);
 			
 			if (finalCheck) {
 				request.setAttribute("msg", "保存されました。");
+				session.removeAttribute("saunaData");
 			}else {
 				request.setAttribute("msg", "保存できませんでした。");
 			}
