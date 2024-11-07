@@ -29,6 +29,7 @@ public class Login extends HttpServlet {
 		} else {
 			path = "WEB-INF/jsp/recordSauna.jsp";
 		}
+		session.removeAttribute("saunaData");
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);
 	}

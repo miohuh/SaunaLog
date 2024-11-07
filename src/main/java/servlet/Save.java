@@ -33,6 +33,9 @@ public class Save extends HttpServlet {
 		String point3 = request.getParameter("point3");
 		String impression = request.getParameter("impression");
 		String stStar = request.getParameter("star");
+		
+		HttpSession session = request.getSession();
+		SaunaData oldSaunaData = (SaunaData)session.getAttribute("saunaData");
 
 		String msg = "";
 		String path = "";
@@ -69,11 +72,18 @@ public class Save extends HttpServlet {
 			}
 
 			int star = Integer.parseInt(stStar);
-
-			SaunaData data = new SaunaData(name, type, adress, url, point1, point2, point3, impression, star);
-
-			HttpSession session = request.getSession();
-			session.setAttribute("data", data);
+			SaunaData saunaData = null;
+			
+			if (oldSaunaData != null) {
+				saunaData = new SaunaData(name, type, adress, url, point1, point2, point3, impression, star);
+				saunaData.setId(oldSaunaData.getId());
+				
+			} else {
+				saunaData = new SaunaData(name, type, adress, url, point1, point2, point3, impression, star);
+			}			
+			
+			
+			session.setAttribute("saunaData", saunaData);
 
 			path = "WEB-INF/jsp/confirmData.jsp";
 

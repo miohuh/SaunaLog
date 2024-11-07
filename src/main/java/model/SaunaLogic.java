@@ -37,4 +37,9 @@ public class SaunaLogic {
 		SaunaDAO dao = new SaunaDAO();
 		return dao.selectName(name);
 	}
+	
+	public boolean update(SaunaData data) {
+		SaunaDAO dao = new SaunaDAO();
+		return dao.updateSauna(data);
+	}
 }
